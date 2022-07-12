@@ -31,6 +31,7 @@ Users are *strongly encouraged* to use the functions as the subjects of their an
 - [SAPUsersAuthorizations](#sapusersauthorizations)
 - [SAPConnectorHealth](#sapconnectorhealth)
 - [SAPConnectorOverview](#sapconnectoroverview)
+- [SAPSystems](#sapsystems)
 
 ### SAPUsersAssignments
 
@@ -135,6 +136,26 @@ Use the following Kusto query to perform a daily trend analysis:
 SAPConnectorOverview(7d)
 | summarize count() by bin(TimeGenerated, 1d), SystemID_s
 ```
+
+### SAPSystems
+
+The **SAPSystems** function details the SAP systems used in the workspace, as configured in the 'SAP - Systems' watchlist.
+This function is often used to filter analytic rules to run on specific system roles, for example, see alert rule "Execution of an Obsolete or an Insecure Function Module", filtered by default on SAP systems defined as production systems.
+
+**Parameters:**
+- SelectedSystems
+    - Optional
+    - Default value: "All Systems"
+- SelectedSystemRoles
+    - Optional
+    - Default value: "All System Roles"
+
+| Field    | Description | Notes |
+| -------- | ----------- | ----- |
+| SystemID | SAP System ID | As defined in the "SAP - Systems" watchlist |
+| SearchKey | An Indexed field for SAP SystemID | |
+| SystemRole | The role of the SAP System | For example- Development, Production |
+| SystemUsage | The intended usage of the SAP System| ERP, CRM |
 
 
 ## Logs produced by the data connector agent
