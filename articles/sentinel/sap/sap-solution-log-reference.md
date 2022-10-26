@@ -519,6 +519,8 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 > [!NOTE]
 > In addition to application logging, change documents, and table recording, all changes that you make to your production system using the Change & Transport System are documented in the CTS and TMS logs.
+> 
+> The SAP CTS and TMS logs can produce a significant amount of data, especially when upgrading the SAP application server. For a cost-effective extraction of these logs, the Microsoft Sentinel Solution for SAP’s agent extracts the Request header and the request lines separately, to be later merged on the fly at query time.
 >
 
 
